@@ -32,8 +32,7 @@ Når skal du bruke `:value` og `@input`?
   2. Å manipulere eller validere inputen før du binder den til en data-egenskap.
   3. Mer spesifikk håndtering av brukerens inndata (f.eks. spesialtilfeller eller flere felt).
 
-
-  Hvorfor bruke `updateLastName('Last name event triggered!', $event)`?
+Hvorfor bruke `updateLastName('Last name event triggered!', $event)`?
 - Her sender vi både en tilpasset melding (`msg`) og selve eventet (`$event`) til metoden `updateLastName`.
 - Dette gir oss fleksibilitet til å:
   1. Logge eller utføre spesifikke handlinger (f.eks. debugging, meldinger) basert på konteksten.
@@ -45,10 +44,12 @@ Eksempel på hva som skjer:
 - Melding (`'Last name event triggered!'`) logges i konsollen for debugging.
 - Eventet brukes til å oppdatere `lastName` med verdien fra input-feltet.
 
+
 Event Modifier:
 - Vue tilbyr innebygde event modifiers som `.prevent`, `.stop` osv., for å forenkle koden og gjøre den mer lesbar.
 - Ved å bruke `.prevent` på `@input`, håndteres `event.preventDefault()` automatisk.
 - Dette gjør koden enklere, da det ikke lenger er nødvendig å skrive `event.preventDefault()` manuelt i metoden.
+
 
 Keyboard Events and Modifiers:
 - Lagt til `middleName` med en `@keyup` event listener som oppdaterer verdien kun når brukeren trykker på `Enter`.
@@ -58,8 +59,9 @@ Keyboard Events and Modifiers:
   - `@keyup.ctrl.enter`: Krever at både `Ctrl` og `Enter` trykkes sammen.
   - `@keyup.shift.k`: Krever `Shift` og `K` samtidig.
 
-  Computed properties:
-  Hvorfor bruke `computed` i stedet for `methods`?
+  
+Computed properties:
+Hvorfor bruke `computed` i stedet for `methods`?
 1. `computed` er reaktiv:
    - Beregningen caches og kjøres bare på nytt når de reaktive avhengighetene endres.
    - Mer effektivt enn `methods`, som alltid kjøres på nytt ved hver rendering.
@@ -67,6 +69,7 @@ Keyboard Events and Modifiers:
    - For komplekse beregninger eller ofte brukte verdier sparer `computed` ressurser ved å unngå unødvendige kall.
 3. Automatisk oppdatering:
    - Computed-egenskaper oppdateres automatisk når avhengige data endrer seg, noe som gjør dem ideelle for dynamiske verdier.
+
 
 Watchers:
 Når og hvorfor bruke `watch` i Vue:
@@ -85,3 +88,19 @@ Når og hvorfor bruke `watch` i Vue:
            }, 3000);
        }
    }
+
+
+Legge til favicon (ikonet på nettleserfanen):
+Det finnes to måter å legge til et favicon på nettsiden:
+
+1. Lagre bildet lokalt i prosjektet:
+Bruk denne metoden hvis du har bildet lagret i en mappe, for eksempel img/basic.png.
+<link rel="icon" type="image/png" sizes="16x16" href="img/basic.png" />
+
+2. Bruke en URL til bildet:
+Denne metoden passer hvis du ønsker å bruke et eksternt bilde via en URL.
+<link rel="icon" type="image/png" sizes="48x48" href="https://example.com/bilde.png" />
+
+Tips:
+Du kan bruke sizes-attributtet for å spesifisere oppløsningen på ikonet. 
+Dette gir skarpere bilder på forskjellige nettlesere og skjermer.
